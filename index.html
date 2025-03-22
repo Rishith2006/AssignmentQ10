@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Visa Checker</title>
+    <style>
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <form action="process.php" method="POST">
+        <select name="country">
+            <option value="">Select Country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="India">India</option>
+            <option value="UK">UK</option>
+            <option value="Australia">Australia</option>
+        </select>
+        <input type="submit" value="Check Visa" name="submit">
+    </form>
+</body>
+</html>

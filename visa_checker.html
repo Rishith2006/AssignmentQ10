@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visa Checker</title>
+    <style>
+        #result { margin-top: 10px; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <select id="country">
+        <option value="">Select Country</option>
+        <option value="USA">USA</option>
+        <option value="Canada">Canada</option>
+        <option value="India">India</option>
+        <option value="UK">UK</option>
+        <option value="Australia">Australia</option>
+    </select>
+    <button onclick="checkVisa()">Check Visa</button>
+    <div id="result"></div>
+
+    <script>
+        function checkVisa() {
+            const country = document.getElementById('country').value;
+            const result = document.getElementById('result');
+            
+            switch(country) {
+                case 'USA':
+                    result.textContent = 'Visa required for most applicants.';
+                    result.className = '';
+                    break;
+                case 'Canada':
+                    result.textContent = 'Visa required unless you have an eTA.';
+                    result.className = '';
+                    break;
+                case 'India':
+                    result.textContent = 'Visa required before travel.';
+                    result.className = '';
+                    break;
+                case 'UK':
+                    result.textContent = 'Visa depends on the duration of stay.';
+                    result.className = '';
+                    break;
+                case 'Australia':
+                    result.textContent = 'eVisa available for eligible travelers.';
+                    result.className = '';
+                    break;
+                default:
+                    result.textContent = 'Please select a country.';
+                    result.className = 'error';
+            }
+        }
+    </script>
+</body>
+</html>

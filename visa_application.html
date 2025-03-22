@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visa Application</title>
+    <style>
+        .error { color: red; }
+        .success { color: green; }
+        form { margin: 20px; }
+        input, select { margin: 5px; }
+    </style>
+</head>
+<body>
+    <form id="visaForm" onsubmit="return validateForm(event)">
+        <input type="text" id="name" placeholder="Enter your name"><br>
+        <input type="text" id="passport" placeholder="Enter passport number"><br>
+        <select id="country">
+            <option value="">Select Country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="India">India</option>
+            <option value="UK">UK</option>
+            <option value="Australia">Australia</option>
+        </select><br>
+        <button type="submit">Apply for Visa</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const passport = document.getElementById('passport').value;
+            const country = document.getElementById('country').value;
+            const result = document.getElementById('result');
+            
+            if (!name || !passport || !country) {
+                result.textContent = 'All fields are required!';
+                result.className = 'error';
+                return false;
+            }
+            
+            if (passport.length < 8 || passport.length > 10) {
+                result.textContent = 'Invalid passport number!';
+                result.className = 'error';
+                return false;
+            }
+            
+            result.textContent = 'Visa application submitted successfully!';
+            result.className = 'success';
+            document.getElementById('visaForm').reset();
+            return true;
+        }
+    </script>
+</body>
+</html>
